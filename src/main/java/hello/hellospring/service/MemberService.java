@@ -1,4 +1,4 @@
-package hello.hellospring;
+package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
@@ -9,7 +9,11 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {   //DI 기능 사용
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원 가입
